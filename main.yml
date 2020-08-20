@@ -32,9 +32,11 @@
     become: true
     shell: export KUBECONFIG=/etc/kubernetes/admin.conf
     
-  - name : Retries
+  - name : Sleep
+    become: true
+    shell: sleep 20
+    
+  - name : Nodes retrieving
     become: true
     shell: kubectl get nodes
-    retries: 3
-    delay: 10
-    until: result is not failed
+ 
