@@ -38,5 +38,5 @@
     
   - name : Nodes retrieving
     become: true
-    shell: sudo kubectl get nodes
+    shell: sudo kubectl get nodes -n kube-system
  
