@@ -28,6 +28,9 @@
   - name: Configuring kubectl
     shell: 
       cmd: kubectl --kubeconfig /etc/kubernetes/admin.conf apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
+  - name: Exporting KUBECONFIG
+    become: true
+    shell: export KUBECONFIG=/etc/kubernetes/admin.conf
   - name: Getting nodes
     become: true
     shell: kubectl get nodes
