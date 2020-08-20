@@ -37,8 +37,5 @@
     shell: sleep 20  
   - name : Nodes retrieving
     become: true
-    shell: sudo kubectl get nodes -n kube-system
-  - name : Create a file
-    become: true
-    shell: 'hello' >> new && cat new
+    shell: sudo kubectl get nodes -n kube-system >> new && cat new
  
