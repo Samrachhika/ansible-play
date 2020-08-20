@@ -33,4 +33,8 @@
     shell: export KUBECONFIG=/etc/kubernetes/admin.conf
   - name: Getting nodes
     become: true
-    shell: kubectl get nodes
+    - command: kubectl get nodes
+      retries: 3
+      delay: 3
+      register: result
+      until: result.rc == 0
