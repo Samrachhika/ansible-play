@@ -31,10 +31,10 @@
   - name: Exporting KUBECONFIG
     become: true
     shell: export KUBECONFIG=/etc/kubernetes/admin.conf
-  - name: Getting nodes
+    
+  - name : Retries
     become: true
-    - command: kubectl get nodes
-      retries: 3
-      delay: 3
-      register: result
-      until: result.rc == 0
+    shell: kubectl get nodes
+    retries: 3
+    delay: 10
+    until: result is not failed
